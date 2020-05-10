@@ -1,4 +1,4 @@
-# Reddit Testing with Cypress
+# WebDriverUniversity Testing with Cypress
 
 ---
 
