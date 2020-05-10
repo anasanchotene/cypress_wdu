@@ -1,0 +1,41 @@
+{
+  "name": "webdriveruniversity",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "open": "cross-env NODE_PATH=cypress cypress open",
+    "merge-report": "mochawesome-merge --reportDir mochawesome-report > mochawesome-report/report-file.json",
+    "generate-report": "marge mochawesome-report/report-file.json -f \"TestResults\" -o mochawesome-report",
+    "clean-reports": "rm -rf mochawesome-report | rm -rf cypress/results || true",
+    "rename-files": "./rename-files.sh \"mochawesome-report/screenshots/**/**\"",
+    "move-screenshots": "mv -f cypress/screenshots mochawesome-report",
+    "fix-screenshots": "npm run move-screenshots && npm run rename-files",
+    "after:tests": "npm run fix-screenshots && npm run merge-report && npm run generate-report"
+  },
+  "author": "Ana",
+  "license": "ISC",
+  "devDependencies": {
+    "cross-env": "^7.0.2",
+    "crossenv": "0.0.2-security",
+    "cypress": "^4.5.0",
+    "cypress-cucumber-preprocessor": "^2.3.1",
+    "cypress-xpath": "^1.4.0",
+    "mocha": "^7.1.1",
+    "mochawesome": "^4.1.0",
+    "mochawesome-merge": "^4.0.3",
+    "mochawesome-report-generator": "^4.1.0"
+  },
+  "cypress-cucumber-preprocessor": {
+    "cucumberJson": {
+      "generate": false,
+      "outputFolder": "mochawesome-report"
+    },
+    "nonGlobalStepDefinitions": true,
+    "ignoreTestFiles": "*.js"
+  },
+  "dependencies": {
+    "cypress-multi-reporters": "^1.2.4"
+  }
+}

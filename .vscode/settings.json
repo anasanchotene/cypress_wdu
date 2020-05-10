@@ -1,0 +1,10 @@
+{
+    "cucumberautocomplete.steps": [
+        "cypress/integration/**/*.js"
+    ],
+    "cucumberautocomplete.syncfeatures": "cypress/integration/**/*feature",
+    "cucumberautocomplete.strictGherkinCompletion": true,
+    "editor.tabSize": 2,
+    "editor.autoIndent": "full",
+    "editor.tabCompletion": "on"
+}

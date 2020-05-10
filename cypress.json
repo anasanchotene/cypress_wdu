@@ -1,0 +1,6 @@
+{
+    "ignoreTestFiles": "*.js",
+    "baseUrl":"http://www.webdriveruniversity.com",
+    "viewportWidth": 1440,
+    "viewportHeight": 800
+  }
